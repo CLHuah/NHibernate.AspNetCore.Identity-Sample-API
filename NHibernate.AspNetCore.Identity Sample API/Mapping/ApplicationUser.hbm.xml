@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<hibernate-mapping
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns="urn:nhibernate-mapping-2.2"
+  assembly="NHibernate.AspNetCore.Identity Sample API"
+  namespace="NHibernate.AspNetCore.Identity_Sample_API.DomainObject">
+
+  <joined-subclass name="ApplicationUser"
+                   extends="NHibernate.AspNetCore.Identity.IdentityUser,NHibernate.AspNetCore.Identity"
+                   table="ApplicationUsers" schema="dbo">
+    <key column="id" />
+    <property name="CreateTime" column="CreateTime" type="datetime" not-null="true" generated="insert" update="false"
+              insert="false" />
+    <property name="LastLogin" column="LastLogin" type="datetime" not-null="false" />
+    <property name="LoginCount" column="LoginCount" type="int" not-null="true" />
+  </joined-subclass>
+
+</hibernate-mapping>
+

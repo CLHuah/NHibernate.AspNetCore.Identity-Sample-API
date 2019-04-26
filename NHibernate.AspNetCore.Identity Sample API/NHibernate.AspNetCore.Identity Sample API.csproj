@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <RootNamespace>NHibernate.AspNetCore.Identity_Sample_API</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Mapping\ApplicationRole.hbm.xml" />
+    <None Remove="Mapping\ApplicationUser.hbm.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Mapping\ApplicationRole.hbm.xml" />
+    <EmbeddedResource Include="Mapping\ApplicationUser.hbm.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="NHibernate" Version="5.2.5" />
+    <PackageReference Include="NHibernate.AspNetCore.Identity" Version="1.4.0" />
+    <PackageReference Include="NHibernate.NetCore" Version="1.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DomainObject\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="hibernate.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
