@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NHibernate.AspNetCore.Identity;
+using NHibernate.AspNetCore.Identity_Sample_API.AutoMapper;
 using NHibernate.AspNetCore.Identity_Sample_API.DomainObject;
 using NHibernate.Cfg;
 using NHibernate.NetCore;
@@ -39,6 +40,9 @@ namespace NHibernate.AspNetCore.Identity_Sample_API
                 .AddHibernateStores();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            // Add AutoMapper Setup
+            services.AddAutoMapperSetup();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
