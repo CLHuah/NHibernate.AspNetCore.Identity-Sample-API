@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using NHibernate.AspNetCore.Identity_Sample_API.DomainObject;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using NHibernate.AspNetCore.Identity_Sample_API.DomainObject;
 using NHibernate.AspNetCore.Identity_Sample_API.Models;
 
 namespace NHibernate.AspNetCore.Identity_Sample_API.Controllers
@@ -34,7 +34,7 @@ namespace NHibernate.AspNetCore.Identity_Sample_API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody]UserModel userModel)
+        public IActionResult Create([FromBody] UserModel userModel)
         {
             var applicationUser = _mapper.Map<ApplicationUser>(userModel);
             var identityResult = Task.Run(async () => await _manager.CreateAsync(applicationUser,
